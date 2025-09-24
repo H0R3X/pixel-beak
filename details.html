@@ -85,6 +85,71 @@
       background: #fff;
       color: rgba(255, 103, 68, 0.91);
     }
+
+    /* Contact form styling */
+    .contact-form-wrapper {
+      background: #fff;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-form-wrapper h3 {
+      margin-bottom: 1em;
+      color: #333;
+    }
+
+    .contact-form-wrapper label {
+      display: block;
+      margin: 0.6em 0 0.3em;
+      font-weight: 600;
+      color: #444;
+      font-family: "Maven pro", sans-serif;
+    }
+
+    .contact-form-wrapper input,
+    .contact-form-wrapper textarea {
+      width: 100%;
+      padding: 0.8em;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 1em;
+      font-family: "Maven pro", sans-serif;
+      font-size: 1em;
+      transition: border 0.3s ease;
+    }
+
+    .contact-form-wrapper input:focus,
+    .contact-form-wrapper textarea:focus {
+      border-color: rgba(255, 103, 68, 0.91);
+      outline: none;
+    }
+
+    .contact-form-wrapper button {
+      background: rgba(255, 103, 68, 0.91);
+      color: #fff;
+      border: none;
+      border-radius: 45px;
+      padding: 0.8em 2em;
+      font-size: 1em;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form-wrapper button:hover {
+      background: #e64e2e;
+      cursor: pointer;
+    }
+
+    /* Thank you message */
+    #thank-you-message {
+      display: none;
+      margin-top: 1.5em;
+      color: green;
+      font-weight: 600;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -103,8 +168,7 @@
         <div class="contact-card">
           <i class="fa fa-envelope"></i>
           <h3>Email</h3>
-          <p><a href="mailto:pixelpeak2025@gmail.com">pixelpeak2025@gmail.com
-</a></p>
+          <p><a href="mailto:pixelpeak2025@gmail.com">pixelpeak2025@gmail.com</a></p>
         </div>
         <div class="contact-card">
           <i class="fa fa-phone"></i>
@@ -113,6 +177,27 @@
         </div>
       </div>
     </section>
+
+    <!-- Contact Form -->
+    <div class="row" style="margin: 4em 0;">
+      <div class="small-12 medium-8 medium-offset-2 columns">
+        <form id="contact-form" action="https://formspree.io/f/mgvnejyd" method="POST" class="contact-form-wrapper">
+          <h3>Send us a message</h3>
+          
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="_replyto" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" class="my-button">Send</button>
+          <p id="thank-you-message">Thanks, your message has been sent!</p>
+        </form>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer id="footer">
@@ -124,5 +209,29 @@
       </div>
     </footer>
   </div>
+
+  <!-- Simple JS for thank-you message -->
+  <script>
+    const form = document.getElementById("contact-form");
+    const thankYou = document.getElementById("thank-you-message");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        thankYou.style.display = "block";
+        form.reset();
+      } else {
+        thankYou.style.display = "block";
+        thankYou.style.color = "red";
+        thankYou.textContent = "❌ Oops! Something went wrong. Try again.";
+      }
+    });
+  </script>
 </body>
 </html>
