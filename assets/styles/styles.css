@@ -3,7 +3,8 @@
 /*********** Global Styles********/
 
 body, html {
-		background-color: #E3E3E3;
+		background-color: #1e0330;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -140,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /*** Experience ***/
 #experience {
-	background-color: #4c6d86;
+	background-color: #002e51;
 	padding: 6em 4em 5.6em;
 }
 
@@ -303,6 +304,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #footer {
 	padding: 5em 4em 2em;
+	text-align: center;
 }
 
 #footer #logo {

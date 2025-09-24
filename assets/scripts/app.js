@@ -2,32 +2,32 @@ const Portfolio = function() {
 	function makeWords() {
 		var words = [
 			{
-				text: "Supabase",
+				text: "Code",
 				weight: 12.3
 			}, {
-				text: "css3",
+				text: "Build",
 				weight: 8
 			}, {
-				text: "javascript",
+				text: "Create",
 				weight: 14
 			}, {
-				text: "SQL",
+				text: "Design",
 				weight: 3
 			}, {
-				text: "bash",
+				text: "Develop",
 				weight: 7
 			}, {
-				text: "Next.js",
+				text: "Innovate",
 				weight: 10
 			}, {
-				text: "Dart",
+				text: "Deploy",
 				weight: 9
 			}, {
-				text: "Flutter",
+				text: "Launch",
 				weight: 15
 			}, {
-				text: "React.js",
-				weight: 7
+				text: "Hack",
+				weight: 6
 			}
 		];
 		return words;
@@ -41,7 +41,7 @@ const Portfolio = function() {
 		var count = 1;
 		$(window).on('scroll', function() {
 			var y_scroll_pos = window.pageYOffset;
-			var scroll_pos_test = 2700; // set to whatever you want it to be
+			var scroll_pos_test = 1000; 
 			var words = makeWords();
 			if (y_scroll_pos > scroll_pos_test && count <= 1) {
 				makeWordCloud(words);
@@ -57,7 +57,7 @@ const Portfolio = function() {
 	function typeAnimation() {
 		Typed.new("#writing-text", {
 			strings: [
-				"love everything about code.", "love chalenges.", "solve problems."
+				"Shaping ideas into working products.","Every problem is an opportunity to create.", "love chalenges.", "solve problems.", "Code is our way of solving puzzles.", 
 			],
 			// Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
 			stringsElement: null,
@@ -65,7 +65,7 @@ const Portfolio = function() {
 			typeSpeed: 1,
 			contentType: 'text',
 			callback: function() {
-				$("#writing-text").css({"color": "#fff", "background-color": "#C8412B"});
+				$("#writing-text").css({"color": "#fff", "background-color": "#19c064ff"});
 			},
 			preStringTyped: function() {},
 			onStringTyped: function() {}
